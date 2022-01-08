@@ -9,4 +9,24 @@
     <welcome-file>default.jsp</welcome-file>
     <welcome-file>default.htm</welcome-file>
   </welcome-file-list>
+  <servlet>
+    <description></description>
+    <display-name>AuthorController</display-name>
+    <servlet-name>AuthorController</servlet-name>
+    <servlet-class>controller.AuthorController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AuthorController</servlet-name>
+    <url-pattern>/AuthorController</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>AutorController</display-name>
+    <servlet-name>AutorController</servlet-name>
+    <servlet-class>controller.AutorController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AutorController</servlet-name>
+    <url-pattern>/AutorController</url-pattern>
+  </servlet-mapping>
 </web-app>
