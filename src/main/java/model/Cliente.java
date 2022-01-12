@@ -1,7 +1,5 @@
 package model;
 
-
-
 public class Cliente {
 
 	String dni;
@@ -9,6 +7,9 @@ public class Cliente {
 	int telefono;
 	String direccion;
 	String correo;
+
+	public Cliente() {
+	}
 
 	public Cliente(String dni, String nombre, int telefono, String direccion, String correo) {
 		this.dni = dni;
