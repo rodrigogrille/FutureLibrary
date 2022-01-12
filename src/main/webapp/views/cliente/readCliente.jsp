@@ -2,8 +2,8 @@
 	pageEncoding="ISO-8859-1"%>
 <%@page import="java.util.Iterator"%>
 <%@page import="java.util.List"%>
-<%@page import="modelDao.AutorDao"%>
-<%@page import="model.Autor"%>
+<%@page import="modelDao.ClienteDao"%>
+<%@page import="model.Cliente"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -32,30 +32,36 @@
 		</div>
 	</nav>
 	<div>
-		<h1 style="margin: 1em;font-size: 3em">Autores</h1>
-		<a class="btn btn-outline-light btn-lg" href="AutorController?accion=createAutor" style="margin-left: 20%">Crear Autor</a>
+		<h1 style="margin: 1em;font-size: 3em">Clientes</h1>
+		<a class="btn btn-outline-light btn-lg" href="ClienteController?accion=createCliente" style="margin-left: 20%">Crear Cliente</a>
 		<table class="table table-hover" style="width: 60%;margin-left: 20%">
 			<thead>
 				<tr>
-					<th scope="col">ID</th>
+					<th scope="col">DNI</th>
 					<th scope="col">Nombre</th>
+					<th scope="col">Telefono</th>
+					<th scope="col">Direccion</th>
+					<th scope="col">Correo</th>
 					<th scope="col">Acciones</th>
 				</tr>
 			</thead>
 			<%
-			AutorDao dao = new AutorDao();
-			List<Autor> list = dao.read();
-			Iterator<Autor> iter = list.iterator();
-			Autor autor = null;
+			ClienteDao dao = new ClienteDao();
+			List<Cliente> list = dao.read();
+			Iterator<Cliente> iter = list.iterator();
+			Cliente cliente = null;
 			while (iter.hasNext()) {
-				autor = iter.next();
+				cliente = iter.next();
 			%>
 			<tr class="table-secondary">
-				<td scope="col"><%=autor.getId()%></td>
-				<td scope="col"><%=autor.getNombre()%></td>
+				<td scope="col"><%=cliente.getDni()%></td>
+				<td scope="col"><%=cliente.getNombre()%></td>
+				<td scope="col"><%=cliente.getTelefono()%></td>
+				<td scope="col"><%=cliente.getDireccion()%></td>
+				<td scope="col"><%=cliente.getCorreo()%></td>
 				<td scope="col"><a class="btn btn-outline-warning"
-					href="AutorController?accion=updateAutor&id=<%=autor.getId()%>">Modificar</a>
-					<a class="btn btn-outline-danger" href="AutorController?accion=deleteAutor&id=<%=autor.getId()%>">Borrar</a></td>
+					href="ClienteController?accion=updateCliente&id=<%=cliente.getDni()%>">Modificar</a>
+					<a class="btn btn-outline-danger" href="ClienteController?accion=deleteCliente&id=<%=cliente.getDni()%>">Borrar</a></td>
 			</tr>
 			<%
 			}

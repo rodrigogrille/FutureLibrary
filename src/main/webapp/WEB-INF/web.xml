@@ -29,4 +29,14 @@
     <servlet-name>AutorController</servlet-name>
     <url-pattern>/AutorController</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ClienteController</display-name>
+    <servlet-name>ClienteController</servlet-name>
+    <servlet-class>controller.ClienteController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ClienteController</servlet-name>
+    <url-pattern>/ClienteController</url-pattern>
+  </servlet-mapping>
 </web-app>

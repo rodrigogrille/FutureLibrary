@@ -7,7 +7,6 @@ public class Ejemplar {
 	String ISBN;
 
 	public Ejemplar(int id, String estado, String iSBN) {
-		super();
 		this.id = id;
 		this.estado = estado;
 		ISBN = iSBN;

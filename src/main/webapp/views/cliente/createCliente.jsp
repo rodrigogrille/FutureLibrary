@@ -28,11 +28,14 @@
 		</div>
 	</nav>
 	<div>
-		<h1  style="margin: 1em;font-size: 3em">Añadir Autor</h1>
-		<form action="AutorController">
-			<h3 style="margin-left: 35%">ID:</h3><br> <input type="text" name="txtID" class="form-control" style="width: 25%;margin-left: 35%"><br>
+		<h1  style="margin: 1em;font-size: 3em">Añadir Cliente</h1>
+		<form action="ClienteController">
+			<h3 style="margin-left: 35%">DNI:</h3><br> <input type="text" name="txtDNI" class="form-control" style="width: 25%;margin-left: 35%"><br>
 			<h3 style="margin-left: 35%">Nombre:</h3><br> <input type="text" name="txtNombre" class="form-control" style="width: 25%;margin-left: 35%"><br>
-			<input type="submit" name="accion" value="Crear" style="margin-left: 35%" class="btn btn-outline-success"><a href="AutorController?accion=readAutor" style="margin-left: 18%" class="btn btn-info">Volver</a>
+			<h3 style="margin-left: 35%">Telefono:</h3><br> <input type="text" name="txtTelefono" class="form-control" style="width: 25%;margin-left: 35%"><br>
+			<h3 style="margin-left: 35%">Direccion:</h3><br> <input type="text" name="txtDireccion" class="form-control" style="width: 25%;margin-left: 35%"><br>
+			<h3 style="margin-left: 35%">Correo:</h3><br> <input type="text" name="txtCorreo" class="form-control" style="width: 25%;margin-left: 35%"><br>
+			<input type="submit" name="accion" value="Crear" style="margin-left: 35%" class="btn btn-outline-success"><a href="ClienteController?accion=readCliente" style="margin-left: 18%" class="btn btn-info">Volver</a>
 		</form>
 		
 	</div>

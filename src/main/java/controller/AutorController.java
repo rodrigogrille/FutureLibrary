@@ -19,7 +19,6 @@ public class AutorController extends HttpServlet {
 	String read = "views/autor/readAutor.jsp";
 	String update = "views/autor/updateAutor.jsp";
 	String create = "views/autor/createAutor.jsp";
-	String delete = "views/autor/deleteAutor.jsp";
 	Autor autor = new Autor();
 	AutorDao dao = new AutorDao();
 

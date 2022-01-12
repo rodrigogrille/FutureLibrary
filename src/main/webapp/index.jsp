@@ -16,7 +16,7 @@
 				<ul class="navbar-nav me-auto">
 					<li class="nav-item"><a class="nav-link active"
 						href="AutorController?accion=readAutor" style="font-size: 22px">Autores</a></li>
-					<li class="nav-item"><a class="nav-link active" href="#"
+					<li class="nav-item"><a class="nav-link active" href="ClienteController?accion=readCliente"
 						style="font-size: 22px">Clientes</a></li>
 					<li class="nav-item"><a class="nav-link active" href="#"
 						style="font-size: 22px">Ejemplares</a></li>
