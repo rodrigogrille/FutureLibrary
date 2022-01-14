@@ -5,6 +5,9 @@ public class Ejemplar {
 	int id;
 	String estado;
 	String ISBN;
+	
+	public Ejemplar() {
+	}
 
 	public Ejemplar(int id, String estado, String iSBN) {
 		this.id = id;

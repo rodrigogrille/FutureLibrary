@@ -2,8 +2,8 @@
 	pageEncoding="ISO-8859-1"%>
 <%@page import="java.util.Iterator"%>
 <%@page import="java.util.List"%>
-<%@page import="modelDao.ClienteDao"%>
-<%@page import="model.Cliente"%>
+<%@page import="modelDao.EjemplarDao"%>
+<%@page import="model.Ejemplar"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -32,36 +32,32 @@
 		</div>
 	</nav>
 	<div>
-		<h1 style="margin: 1em;font-size: 3em">Clientes</h1>
-		<a class="btn btn-outline-light btn-lg" href="ClienteController?accion=createCliente" style="margin-left: 20%">Crear Cliente</a>
+		<h1 style="margin: 1em;font-size: 3em">Ejemplares</h1>
+		<a class="btn btn-outline-light btn-lg" href="EjemplarController?accion=createEjemplar" style="margin-left: 20%">Crear Ejemplar</a>
 		<table class="table table-hover" style="width: 60%;margin-left: 20%">
 			<thead>
 				<tr>
-					<th scope="col">DNI</th>
-					<th scope="col">Nombre</th>
-					<th scope="col">Telefono</th>
-					<th scope="col">Direccion</th>
-					<th scope="col">Correo</th>
+					<th scope="col">ID</th>
+					<th scope="col">Estado</th>
+					<th scope="col">ISBN</th>
 					<th scope="col">Acciones</th>
 				</tr>
 			</thead>
 			<%
-			ClienteDao dao = new ClienteDao();
-			List<Cliente> list = dao.read();
-			Iterator<Cliente> iter = list.iterator();
-			Cliente cliente = null;
+			EjemplarDao dao = new EjemplarDao();
+			List<Ejemplar> list = dao.read();
+			Iterator<Ejemplar> iter = list.iterator();
+			Ejemplar ejemplar = null;
 			while (iter.hasNext()) {
-				cliente = iter.next();
+				ejemplar = iter.next();
 			%>
 			<tr class="table-secondary">
-				<td scope="col"><%=cliente.getDni()%></td>
-				<td scope="col"><%=cliente.getNombre()%></td>
-				<td scope="col"><%=cliente.getTelefono()%></td>
-				<td scope="col"><%=cliente.getDireccion()%></td>
-				<td scope="col"><%=cliente.getCorreo()%></td>
+				<td scope="col"><%=ejemplar.getId()%></td>
+				<td scope="col"><%=ejemplar.getEstado()%></td>
+				<td scope="col"><%=ejemplar.getISBN()%></td>
 				<td scope="col"><a class="btn btn-outline-warning"
-					href="ClienteController?accion=updateCliente&id=<%=cliente.getDni()%>">Modificar</a>
-					<a class="btn btn-outline-danger" href="ClienteController?accion=deleteCliente&id=<%=cliente.getDni()%>">Borrar</a></td>
+					href="EjemplarController?accion=updateEjemplar&id=<%=ejemplar.getId()%>">Modificar</a>
+					<a class="btn btn-outline-danger" href="EjemplarController?accion=deleteEjemplar&id=<%=ejemplar.getId()%>">Borrar</a></td>
 			</tr>
 			<%
 			}

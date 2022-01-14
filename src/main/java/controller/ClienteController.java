@@ -20,26 +20,28 @@ public class ClienteController extends HttpServlet {
 	String update = "views/cliente/updateCliente.jsp";
 	String create = "views/cliente/createCliente.jsp";
 	Cliente cliente = new Cliente();
-	ClienteDao dao = new ClienteDao();   
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public ClienteController() {
-    }
+	ClienteDao dao = new ClienteDao();
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#HttpServlet()
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+	public ClienteController() {
+	}
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		String acceso = "";
 		String accion = request.getParameter("accion");
 		if (accion.equalsIgnoreCase("readCliente")) {
 			acceso = read;
 		} else if (accion.equalsIgnoreCase("createCliente")) {
-			acceso = create; 
+			acceso = create;
 		} else if (accion.equalsIgnoreCase("Crear")) {
-			String DNI =request.getParameter("txtDNI");
+			String DNI = request.getParameter("txtDNI");
 			String Nombre = request.getParameter("txtNombre");
 			int Telefono = Integer.parseInt(request.getParameter("txtTelefono"));
 			String Direccion = request.getParameter("txtDireccion");
@@ -50,12 +52,12 @@ public class ClienteController extends HttpServlet {
 			cliente.setDireccion(Direccion);
 			cliente.setCorreo(Correo);
 			dao.create(cliente);
-			acceso=read;
+			acceso = read;
 		} else if (accion.equalsIgnoreCase("updateCliente")) {
 			request.setAttribute("id", request.getParameter("id"));
 			acceso = update;
 		} else if (accion.equalsIgnoreCase("Modificar")) {
-			String DNI =request.getParameter("txtDNI");
+			String DNI = request.getParameter("txtDNI");
 			String Nombre = request.getParameter("txtNombre");
 			int Telefono = Integer.parseInt(request.getParameter("txtTelefono"));
 			String Direccion = request.getParameter("txtDireccion");
@@ -66,21 +68,22 @@ public class ClienteController extends HttpServlet {
 			cliente.setDireccion(Direccion);
 			cliente.setCorreo(Correo);
 			dao.update(cliente);
-			acceso=read;
+			acceso = read;
 		} else if (accion.equalsIgnoreCase("deleteCliente")) {
-			String DNI =request.getParameter("id");
+			String DNI = request.getParameter("id");
 			dao.delete(DNI);
-			acceso=read;
-			
+			acceso = read;
 		}
 		RequestDispatcher view = request.getRequestDispatcher(acceso);
 		view.forward(request, response);
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 	}

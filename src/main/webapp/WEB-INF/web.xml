@@ -39,4 +39,14 @@
     <servlet-name>ClienteController</servlet-name>
     <url-pattern>/ClienteController</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>EjemplarController</display-name>
+    <servlet-name>EjemplarController</servlet-name>
+    <servlet-class>controller.EjemplarController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>EjemplarController</servlet-name>
+    <url-pattern>/EjemplarController</url-pattern>
+  </servlet-mapping>
 </web-app>

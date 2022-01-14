@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+	<%@page import="modelDao.EjemplarDao"%>
+<%@page import="model.Ejemplar"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -28,11 +30,17 @@
 		</div>
 	</nav>
 	<div>
-		<h1  style="margin: 1em;font-size: 3em">Añadir Autor</h1>
-		<form action="AutorController">
-			<h3 style="margin-left: 35%">ID:</h3><br> <input type="text" name="txtID" class="form-control" style="width: 25%;margin-left: 35%"><br>
-			<h3 style="margin-left: 35%">Nombre:</h3><br> <input type="text" name="txtNombre" class="form-control" style="width: 25%;margin-left: 35%"><br>
-			<input type="submit" name="accion" value="Crear" style="margin-left: 35%" class="btn btn-outline-success"><a href="AutorController?accion=readAutor" style="margin-left: 18%" class="btn btn-info">Volver</a>
+	<%
+		EjemplarDao dao = new EjemplarDao();
+		int Id = Integer.parseInt((String) request.getAttribute("id"));
+		Ejemplar ejemplar = (Ejemplar) dao.read(Id);
+		%>
+		<h1  style="margin: 1em;font-size: 3em">Modificar Ejemplar</h1>
+		<form action="EjemplarController">
+			<h3 style="margin-left: 35%">ID:</h3><br> <input type="text" name="txtId" class="form-control" value="<%=ejemplar.getId()%>" style="width: 25%;margin-left: 35%"><br>
+			<h3 style="margin-left: 35%">Estado:</h3><br> <input type="text" name="txtEstado" class="form-control" value="<%=ejemplar.getEstado()%>" style="width: 25%;margin-left: 35%"><br>
+			<h3 style="margin-left: 35%">ISBN:</h3><br> <input type="text" name="txtISBN" class="form-control" value="<%=ejemplar.getISBN()%>" style="width: 25%;margin-left: 35%"><br>
+			<input type="submit" name="accion" value="Modificar" style="margin-left: 35%" class="btn btn-outline-success"><a href="EjemplarController?accion=readEjemplar" style="margin-left: 18%" class="btn btn-info">Volver</a>
 		</form>
 		
 	</div>
