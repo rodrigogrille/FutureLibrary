@@ -1,9 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-<%@page import="java.util.Iterator"%>
-<%@page import="java.util.List"%>
-<%@page import="modelDao.AutorDao"%>
-<%@page import="model.Autor"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -32,36 +28,16 @@
 		</div>
 	</nav>
 	<div>
-		<h1 style="margin: 1em;font-size: 3em">Autores</h1>
-		<a class="btn btn-outline-light btn-lg" href="AutorController?accion=createAutor" style="margin-left: 20%">Crear Autor</a>
-		<table class="table table-hover" style="width: 60%;margin-left: 20%">
-			<thead>
-				<tr>
-					<th scope="col">ID</th>
-					<th scope="col">Nombre</th>
-					<th scope="col">Acciones</th>
-				</tr>
-			</thead>
-			<%
-			AutorDao dao = new AutorDao();
-			List<Autor> list = dao.read();
-			Iterator<Autor> iter = list.iterator();
-			Autor autor = null;
-			while (iter.hasNext()) {
-				autor = iter.next();
-			%>
-			<tr class="table-secondary">
-				<td scope="col"><%=autor.getId()%></td>
-				<td scope="col"><%=autor.getNombre()%></td>
-				<td scope="col"><a class="btn btn-outline-warning"
-					href="AutorController?accion=updateAutor&id=<%=autor.getId()%>">Modificar</a>
-					<a class="btn btn-outline-danger" href="AutorController?accion=deleteAutor&id=<%=autor.getId()%>">Borrar</a></td>
-			</tr>
-			<%
-			}
-			%>
-		</table>
-		<a class="btn btn-info btn-lg" href="./index.jsp" style="margin-top: 2em;margin-left: 20%">Volver</a>
+		<h1  style="margin: 1em;font-size: 3em">Añadir Libros</h1>
+		<form action="LibroController">
+			<h3 style="margin-left: 35%">ISBN:</h3><br> <input type="text" name="txtIsbn" class="form-control" style="width: 25%;margin-left: 35%"><br>
+			<h3 style="margin-left: 35%">Numero Paginas:</h3><br> <input type="text" name="txtNPaginas" class="form-control" style="width: 25%;margin-left: 35%"><br>
+			<h3 style="margin-left: 35%">Titulo:</h3><br> <input type="text" name="txtTitulo" class="form-control" style="width: 25%;margin-left: 35%"><br>
+			<h3 style="margin-left: 35%">Editorial:</h3><br> <input type="text" name="txtEditorial" class="form-control" style="width: 25%;margin-left: 35%"><br>
+			<h3 style="margin-left: 35%">ID Autor:</h3><br> <input type="text" name="txtIdAutor" class="form-control" style="width: 25%;margin-left: 35%"><br>
+			<input type="submit" name="accion" value="Crear" style="margin-left: 35%" class="btn btn-outline-success"><a href="LibroController?accion=readLibro" style="margin-left: 18%" class="btn btn-info">Volver</a>
+		</form>
+		
 	</div>
 </body>
 </html>

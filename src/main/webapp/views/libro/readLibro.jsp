@@ -2,8 +2,8 @@
 	pageEncoding="ISO-8859-1"%>
 <%@page import="java.util.Iterator"%>
 <%@page import="java.util.List"%>
-<%@page import="modelDao.EjemplarDao"%>
-<%@page import="model.Ejemplar"%>
+<%@page import="modelDao.LibroDao"%>
+<%@page import="model.Libro"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -32,32 +32,36 @@
 		</div>
 	</nav>
 	<div>
-		<h1 style="margin: 1em;font-size: 3em">Ejemplares</h1>
-		<a class="btn btn-outline-light btn-lg" href="EjemplarController?accion=createEjemplar" style="margin-left: 20%">Crear Ejemplar</a>
+		<h1 style="margin: 1em;font-size: 3em">Libros</h1>
+		<a class="btn btn-outline-light btn-lg" href="LibroController?accion=createLibro" style="margin-left: 20%">Crear Libro</a>
 		<table class="table table-hover" style="width: 60%;margin-left: 20%">
 			<thead>
 				<tr>
-					<th scope="col">ID</th>
-					<th scope="col">Estado</th>
 					<th scope="col">ISBN</th>
+					<th scope="col">Numero de Paginas</th>
+					<th scope="col">Titulo</th>
+					<th scope="col">Editorial</th>
+					<th scope="col">ID Autor</th>
 					<th scope="col">Acciones</th>
 				</tr>
 			</thead>
 			<%
-			EjemplarDao dao = new EjemplarDao();
-			List<Ejemplar> list = dao.read();
-			Iterator<Ejemplar> iter = list.iterator();
-			Ejemplar ejemplar = null;
+			LibroDao dao = new LibroDao();
+			List<Libro> list = dao.read();
+			Iterator<Libro> iter = list.iterator();
+			Libro libro = null;
 			while (iter.hasNext()) {
-				ejemplar = iter.next();
+				libro = iter.next();
 			%>
 			<tr class="table-secondary">
-				<td scope="col"><%=ejemplar.getId()%></td>
-				<td scope="col"><%=ejemplar.getEstado()%></td>
-				<td scope="col"><%=ejemplar.getISBN()%></td>
+				<td scope="col"><%=libro.getIsbn()%></td>
+				<td scope="col"><%=libro.getNum_pag()%></td>
+				<td scope="col"><%=libro.getTitulo()%></td>
+				<td scope="col"><%=libro.getEditorial()%></td>
+				<td scope="col"><%=libro.getId_autor()%></td>
 				<td scope="col"><a class="btn btn-outline-warning"
-					href="EjemplarController?accion=updateEjemplar&id=<%=ejemplar.getId()%>">Modificar</a>
-					<a class="btn btn-outline-danger" href="EjemplarController?accion=deleteEjemplar&id=<%=ejemplar.getId()%>">Borrar</a></td>
+					href="LibroController?accion=updateLibro&id=<%=libro.getIsbn()%>">Modificar</a>
+					<a class="btn btn-outline-danger" href="LibroController?accion=deleteLibro&id=<%=libro.getIsbn()%>">Borrar</a></td>
 			</tr>
 			<%
 			}

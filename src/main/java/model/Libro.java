@@ -8,8 +8,10 @@ public class Libro {
 	String editorial;
 	int id_autor;
 
+	public Libro() {
+	}
+
 	public Libro(String isbn, int num_pag, String titulo, String editorial, int id_autor) {
-		super();
 		this.isbn = isbn;
 		this.num_pag = num_pag;
 		this.titulo = titulo;
