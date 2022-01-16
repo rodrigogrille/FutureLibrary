@@ -1,6 +1,7 @@
 package modelDao;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -39,13 +40,15 @@ public class PrestamoDao {
 		return list;
 	}
 
-	public Prestamo read(String id) {
-		String sql = "select * from prestamo where DNI=?";
+	public Prestamo read(String dni, int id, Date date) {
+		String sql = "select * from prestamo where DNI=? AND ID=? AND fecha_inicio=?";
 		Prestamo prestamo = new Prestamo();
 		try {
 			con = cn.getConnection();
 			ps = con.prepareStatement(sql);
-			ps.setString(1, id);
+			ps.setString(1, dni);
+			ps.setInt(2, id);
+			ps.setDate(3, date);
 			rs = ps.executeQuery();
 			while (rs.next()) {
 				prestamo.setDni(rs.getString("DNI"));
@@ -78,14 +81,17 @@ public class PrestamoDao {
 	}
 
 	public boolean update(Prestamo prestamo) {
-		String sql = "update prestamo set ID=?, fecha_inicio=?, fecha_fin=? where DNI=?";
+		String sql = "update prestamo set DNI=?, ID=?, fecha_inicio=?, fecha_fin=? where DNI=? AND ID=? AND fecha_inicio=?";
 		try {
 			con = cn.getConnection();
 			ps = con.prepareStatement(sql);
-			ps.setInt(1, prestamo.getId());
-			ps.setDate(2, prestamo.getFecha_inicio());
-			ps.setDate(3, prestamo.getFecha_fin());
-			ps.setString(4, prestamo.getDni());
+			ps.setString(1, prestamo.getDni());
+			ps.setInt(2, prestamo.getId());
+			ps.setDate(3, prestamo.getFecha_inicio());
+			ps.setDate(4, prestamo.getFecha_fin());
+			ps.setString(5, prestamo.getDni());
+			ps.setInt(6, prestamo.getId());
+			ps.setDate(7, prestamo.getFecha_inicio());
 			ps.executeUpdate();
 		} catch (SQLException ex) {
 			System.out.println(ex);
@@ -94,12 +100,14 @@ public class PrestamoDao {
 		return true;
 	}
 
-	public boolean delete(String id) {
-		String sql = "delete from prestamo where DNI=?";
+	public boolean delete(String dni, int id, Date date) {
+		String sql = "delete from prestamo where DNI=? AND ID=? AND fecha_inicio=?";
 		try {
 			con = cn.getConnection();
 			ps = con.prepareStatement(sql);
-			ps.setString(1, id);
+			ps.setString(1, dni);
+			ps.setInt(2, id);
+			ps.setDate(3, date);
 			ps.executeUpdate();
 		} catch (SQLException ex) {
 			System.out.println(ex);

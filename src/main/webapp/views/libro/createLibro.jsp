@@ -21,7 +21,7 @@
 						style="font-size: 22px">Ejemplares</a></li>
 					<li class="nav-item"><a class="nav-link active" href="LibroController?accion=readLibro"
 						style="font-size: 22px">Libros</a></li>
-					<li class="nav-item"><a class="nav-link active" href="#"
+					<li class="nav-item"><a class="nav-link active" href="PrestamoController?accion=readPrestamo"
 						style="font-size: 22px">Prestamos</a></li>
 				</ul>
 			</div>

@@ -9,7 +9,7 @@ public class DateValidation {
 	static Date sql;
 	
 	public static boolean dateValidation(String date) {
-		SimpleDateFormat format = new SimpleDateFormat("yyyy/MM/dd");
+		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
 		try {
 			java.util.Date parsed = format.parse(date);
 		} catch (ParseException e) {
@@ -20,7 +20,7 @@ public class DateValidation {
 	
 	public static Date getDate(String date) {
 
-		SimpleDateFormat format = new SimpleDateFormat("yyyy/MM/dd");
+		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
 		java.util.Date parsed;
 		try {
 			parsed = format.parse(date);

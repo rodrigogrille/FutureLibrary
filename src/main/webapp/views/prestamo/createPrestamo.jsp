@@ -28,7 +28,7 @@
 		</div>
 	</nav>
 	<div>
-		<h1  style="margin: 1em;font-size: 3em">Añadir Libros</h1>
+		<h1  style="margin: 1em;font-size: 3em">Añadir Prestamos</h1>
 		<form action="PrestamoController">
 			<h3 style="margin-left: 35%">DNI:</h3><br> <input type="text" name="txtDni" class="form-control" style="width: 25%;margin-left: 35%"><br>
 			<h3 style="margin-left: 35%">ID Ejemplar:</h3><br> <input type="text" name="txtId" class="form-control" style="width: 25%;margin-left: 35%"><br>

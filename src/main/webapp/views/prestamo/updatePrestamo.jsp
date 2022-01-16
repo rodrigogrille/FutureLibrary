@@ -1,7 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-	<%@page import="modelDao.LibroDao"%>
-<%@page import="model.Libro"%>
+	<%@page import="modelDao.PrestamoDao"%>
+<%@page import="model.Prestamo"%>
+<%@page import="model.DateValidation"%>
+<%@page import="java.sql.Date"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -31,18 +33,19 @@
 	</nav>
 	<div>
 	<%
-		LibroDao dao = new LibroDao();
-		String Id = (String) request.getAttribute("id");
-		Libro libro = (Libro) dao.read(Id);
+		PrestamoDao dao = new PrestamoDao();
+		String DNI = (String) request.getAttribute("dni");
+		int Id = Integer.parseInt((String) request.getAttribute("id"));
+		Date date = DateValidation.getDate((String) request.getAttribute("fechainicio"));
+		Prestamo prestamo = (Prestamo) dao.read(DNI,Id,date);
 		%>
 		<h1  style="margin: 1em;font-size: 3em">Modificar Libro</h1>
-		<form action="LibroController">
-			<h3 style="margin-left: 35%">ISBN:</h3><br> <input type="text" name="txtIsbn" class="form-control" value="<%=libro.getIsbn()%>" style="width: 25%;margin-left: 35%"><br>
-			<h3 style="margin-left: 35%">Numero Paginas:</h3><br> <input type="text" name="txtNPaginas" class="form-control" value="<%=libro.getNum_pag()%>" style="width: 25%;margin-left: 35%"><br>
-			<h3 style="margin-left: 35%">Titulo:</h3><br> <input type="text" name="txtTitulo" class="form-control" value="<%=libro.getTitulo()%>" style="width: 25%;margin-left: 35%"><br>
-			<h3 style="margin-left: 35%">Editorial:</h3><br> <input type="text" name="txtEditorial" class="form-control" value="<%=libro.getEditorial()%>" style="width: 25%;margin-left: 35%"><br>
-			<h3 style="margin-left: 35%">ID Autor:</h3><br> <input type="text" name="txtIdAutor" class="form-control" value="<%=libro.getId_autor()%>" style="width: 25%;margin-left: 35%"><br>
-			<input type="submit" name="accion" value="Modificar" style="margin-left: 35%" class="btn btn-outline-success"><a href="LibroController?accion=readLibro" style="margin-left: 18%" class="btn btn-info">Volver</a>
+		<form action="PrestamoController">
+			<h3 style="margin-left: 35%">DNI:</h3><br> <input type="text" name="txtDni" class="form-control" value="<%=prestamo.getDni()%>" style="width: 25%;margin-left: 35%"><br>
+			<h3 style="margin-left: 35%">ID:</h3><br> <input type="text" name="txtId" class="form-control" value="<%=prestamo.getId()%>" style="width: 25%;margin-left: 35%"><br>
+			<h3 style="margin-left: 35%">Fecha Inicio:</h3><br> <input type="text" name="txtFechaInicio" class="form-control" value="<%=prestamo.getFecha_inicio()%>" style="width: 25%;margin-left: 35%"><br>
+			<h3 style="margin-left: 35%">Fecha Fin:</h3><br> <input type="text" name="txtFechaFin" class="form-control" value="<%=prestamo.getFecha_fin()%>" style="width: 25%;margin-left: 35%"><br>
+			<input type="submit" name="accion" value="Modificar" style="margin-left: 35%" class="btn btn-outline-success"><a href="PrestamoController?accion=readPrestamo" style="margin-left: 18%" class="btn btn-info">Volver</a>
 		</form>
 		
 	</div>

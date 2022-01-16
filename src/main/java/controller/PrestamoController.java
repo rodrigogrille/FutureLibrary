@@ -22,7 +22,7 @@ public class PrestamoController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	String read = "views/prestamo/readPrestamo.jsp";
 	String update = "views/prestamo/updatePrestamo.jsp";
-	String create = "views/prestamo/createLibro.jsp";
+	String create = "views/prestamo/createPrestamo.jsp";
 	Prestamo prestamo = new Prestamo();
 	PrestamoDao dao = new PrestamoDao();
     /**
@@ -51,7 +51,13 @@ public class PrestamoController extends HttpServlet {
 			prestamo.setDni(DNI);
 			prestamo.setId(ID);
 			prestamo.setFecha_inicio(DateValidation.getDate(Fecha_inicio));
-			prestamo.setFecha_fin(DateValidation.getDate(Fecha_fin));
+			if (Fecha_fin.equals("")) {
+				Date date = null;
+				prestamo.setFecha_fin(date);
+			} else {
+				prestamo.setFecha_fin(DateValidation.getDate(Fecha_fin));
+			}
+			
 			dao.create(prestamo);
 			acceso = read;
 		} else if (accion.equalsIgnoreCase("updatePrestamo")) {
@@ -67,14 +73,19 @@ public class PrestamoController extends HttpServlet {
 			prestamo.setDni(DNI);
 			prestamo.setId(ID);
 			prestamo.setFecha_inicio(DateValidation.getDate(Fecha_inicio));
-			prestamo.setFecha_fin(DateValidation.getDate(Fecha_fin));
+			if (Fecha_fin.equals("") || Fecha_fin.equals(null) || Fecha_fin.equals("null")) {
+				Date date = null;
+				prestamo.setFecha_fin(date);
+			}else {
+				prestamo.setFecha_fin(DateValidation.getDate(Fecha_fin));
+			}
 			dao.update(prestamo);
 			acceso = read;
 		} else if (accion.equalsIgnoreCase("deletePrestamo")) {
 			String DNI = request.getParameter("dni");
 			int ID = Integer.parseInt(request.getParameter("id"));
 			Date fecha_inicio = DateValidation.getDate(request.getParameter("fechainicio"));
-			dao.delete(DNI);
+			dao.delete(DNI, ID, fecha_inicio);
 			acceso = read;
 		}
 		RequestDispatcher view = request.getRequestDispatcher(acceso);

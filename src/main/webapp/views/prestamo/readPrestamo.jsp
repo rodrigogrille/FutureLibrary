@@ -25,15 +25,15 @@
 						style="font-size: 22px">Ejemplares</a></li>
 					<li class="nav-item"><a class="nav-link active" href="LibroController?accion=readLibro"
 						style="font-size: 22px">Libros</a></li>
-					<li class="nav-item"><a class="nav-link active" href="#"
+					<li class="nav-item"><a class="nav-link active" href="PrestamoController?accion=readPrestamo"
 						style="font-size: 22px">Prestamos</a></li>
 				</ul>
 			</div>
 		</div>
 	</nav>
 	<div>
-		<h1 style="margin: 1em;font-size: 3em">Libros</h1>
-		<a class="btn btn-outline-light btn-lg" href="PrestamoController?accion=createPrestamo" style="margin-left: 20%">Crear Libro</a>
+		<h1 style="margin: 1em;font-size: 3em">Prestamos</h1>
+		<a class="btn btn-outline-light btn-lg" href="PrestamoController?accion=createPrestamo" style="margin-left: 20%">Crear Prestamo</a>
 		<table class="table table-hover" style="width: 60%;margin-left: 20%">
 			<thead>
 				<tr>
