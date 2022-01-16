@@ -59,4 +59,14 @@
     <servlet-name>LibroController</servlet-name>
     <url-pattern>/LibroController</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>PrestamoController</display-name>
+    <servlet-name>PrestamoController</servlet-name>
+    <servlet-class>controller.PrestamoController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>PrestamoController</servlet-name>
+    <url-pattern>/PrestamoController</url-pattern>
+  </servlet-mapping>
 </web-app>

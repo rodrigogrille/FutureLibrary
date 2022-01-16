@@ -3,7 +3,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" href="css/index.css">
 <meta charset="ISO-8859-1">
 <link href="./css/bootstrap.min.css" rel="stylesheet" type="text/css" />
 <title>Future Library</title>
@@ -11,7 +10,7 @@
 <body>
 	<nav class="navbar navbar-expand-lg navbar-dark bg-primary" style="height: 7em">
 		<div class="container-fluid">
-			<a class="navbar-brand" href="#" style="font-size:35px">Future Library</a>
+			<a class="navbar-brand" href="./index.jsp" style="font-size:35px">Future Library</a>
 			<div class="collapse navbar-collapse" id="navbarColor01">
 				<ul class="navbar-nav me-auto">
 					<li class="nav-item"><a class="nav-link active"
@@ -28,5 +27,16 @@
 			</div>
 		</div>
 	</nav>
+	<div>
+		<h1  style="margin: 1em;font-size: 3em">Añadir Libros</h1>
+		<form action="PrestamoController">
+			<h3 style="margin-left: 35%">DNI:</h3><br> <input type="text" name="txtDni" class="form-control" style="width: 25%;margin-left: 35%"><br>
+			<h3 style="margin-left: 35%">ID Ejemplar:</h3><br> <input type="text" name="txtId" class="form-control" style="width: 25%;margin-left: 35%"><br>
+			<h3 style="margin-left: 35%">Fecha Inicio:</h3><br> <input type="text" name="txtFechaInicio" class="form-control" style="width: 25%;margin-left: 35%"><br>
+			<h3 style="margin-left: 35%">Fecha Fin:</h3><br> <input type="text" name="txtFechaFin" class="form-control" style="width: 25%;margin-left: 35%"><br>
+			<input type="submit" name="accion" value="Crear" style="margin-left: 35%" class="btn btn-outline-success"><a href="PrestamoController?accion=readPrestamo" style="margin-left: 18%" class="btn btn-info">Volver</a>
+		</form>
+		
+	</div>
 </body>
 </html>
